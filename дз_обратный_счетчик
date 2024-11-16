@@ -1,0 +1,6 @@
+counter = int(input('Введите положительное число для обратного отсчета: '))
+if counter < 1:
+    counter = int(input('Введите положительное число! '))
+while counter >= 0:
+    print('Счетчик = ', counter)
+    counter -= 1

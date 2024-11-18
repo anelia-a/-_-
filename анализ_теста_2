@@ -1,0 +1,35 @@
+import string
+text = input('')
+text_upgrade = text.translate(str.maketrans('', '', string.punctuation)).lower()
+words = text_upgrade.split()
+count_words = len(words)
+
+def f_long_word():
+    long_word = ''
+    for word in words:
+        if len(word) > len(long_word):
+            long_word = word
+    print('The longest word:', long_word)
+
+def f_count_vowels():
+    count_vowels = int()
+    vowels = 'аеёиоуыэюя'
+    for char in text_upgrade:
+        if char in vowels:
+            count_vowels += 1
+    print(f'The text has {count_vowels} vowels')
+
+def f_word_frequency():
+    word_frequency = {}
+    for word in words:
+        if word in word_frequency:
+            word_frequency[word] += 1
+        else:
+            word_frequency[word] = 1
+    for word, count in word_frequency.items():
+        print(f"'{word}: {count}")
+
+print('Words:', count_words)
+f_long_word()
+f_count_vowels()
+f_word_frequency()

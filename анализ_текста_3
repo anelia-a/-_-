@@ -1,0 +1,39 @@
+import string
+
+def put_text():
+    return input('Введите текст: ')
+
+def text_upgrade(text):
+    text_cleaned = text.translate(str.maketrans('', '', string.punctuation)).lower()
+    words = text_cleaned.split()
+    count_words = len(words)
+    longest_word = max(words, key=len) if words else ''
+    return words, count_words, longest_word
+
+def count_vowels(text):
+    vowels = 'аеёиоуыэюя'
+    return sum(1 for char in text if char in vowels)
+
+def count_word_frequency(words):
+    word_frequency = {}
+    for word in words:
+        word_frequency[word] = word_frequency.get(word, 0) + 1
+    return word_frequency
+
+def main():
+    input_text = put_text()
+    words, count_words, longest_word = text_upgrade(input_text)
+
+    print('Количество слов:', count_words)
+    print('Самое длинное слово:', longest_word)
+
+    count_vowels_number = count_vowels(input_text)
+    print(f'Количество гласных: {count_vowels_number}')
+
+    word_frequency = count_word_frequency(words)
+    print('Частота слов:')
+    for word, count in word_frequency.items():
+        print(f"'{word}': {count}")
+
+if __name__ == "__main__":
+    main()

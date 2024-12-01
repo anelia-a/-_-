@@ -10,10 +10,11 @@ def f_sq_of_odd_num():
 
 def f_negative_number():
     count_num = 0
-    while True:
+    test = True
+    while test:
         neg_num = int(input('Введите число: '))
         if neg_num < 0:
-            break
+            test = False
         else:
             count_num += 1
     return count_num

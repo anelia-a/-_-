@@ -1,7 +1,7 @@
 def my_list():
     new_list = ['apple', 'orange', 'banana', 'grape', 'coconut']
     new_list[0] = 'cucumber'
-    new_list[4] = 'tomato'
+    new_list[-1] = 'tomato'
     for i in new_list:
         print(i)
         

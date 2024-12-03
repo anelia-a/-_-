@@ -1,0 +1,9 @@
+from itertools import zip_longest
+
+def add_list(a, b):
+    c = [x+y for x, y in zip_longest(a, b, fillvalue=0)]
+    print(f'Список сумм соотвествующих элементов: {c}')
+
+a = [8, 9, 9]
+b = [8, 5, 4, 5]
+add_list(a, b)

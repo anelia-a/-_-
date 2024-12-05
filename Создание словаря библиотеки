@@ -1,7 +1,7 @@
 library = {
     'Евгений Онегин': {'author': 'А.С.Пушкин', 'year': '1833', 'available': True},
     'Война и мир': {'author': 'Л.Н.Толстой', 'year': '1867', 'available': True},
-    'Ася': {'author': 'И.С.Тургенев', 'year': '1858', 'available': False}
+    'Ася': {'author': 'И.С.Тургенев', 'year': '1858', 'available': True}
 }
 
 def book_list_view(library):

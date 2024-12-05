@@ -1,0 +1,7 @@
+my_list = ['yellow', 'orange', 'blue', 'black', 'brown']
+count = len(my_list)
+print(count)
+
+my_tuple = ('yellow', 'orange', 'blue', 'black', 'brown')
+count_1 = len(my_tuple)
+print(count_1)

@@ -1,4 +1,4 @@
 my_list = list(map(str, input("Введите данные для списка: ").split()))
-count = len(my_list)
-print(count)
+count = len(set(my_list))
+print(f'Количество уникальных эелементов {count}')
 

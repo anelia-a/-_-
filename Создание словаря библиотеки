@@ -5,13 +5,11 @@ library = {
 }
 
 def book_list_view(library):
-    if not library:
-        print('Книга отсутсвует в библиотеке')
-    else:
-        print('Cписок доступных книг в библиотеке')
-        for title, info in library.items():
-            if info['available']:
-                print(f' - {title}')
+    for title, info in library.items():
+        if info['available']:
+            print(f'{title} - книга в наличии')
+        else:
+            print(f'{title} - книга отсутсвует')
             
 
 book_list_view(library)

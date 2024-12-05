@@ -1,1 +1,52 @@
+students = [
+    {'name': 'Alice', 'grades': [77, 81, 100]},
+    {'name': 'Anna', 'grades': [98, 91, 99]},
+    {'name': 'Tom', 'grades': [65, 60, 85]},
+    {'name': 'Timothy', 'grades': [95, 71, 94]},
+    {'name': 'Oliver', 'grades': [100, 77, 87]}
+]
 
+for student in students:
+    def calculate_average(grades):
+        avrg_grade = sum(grades) / len(grades)
+        return avrg_grade
+    avg = calculate_average(student['grades'])
+    status = ''
+    if avg >= 75:
+        status = 'Успешно'
+    else:
+        status = 'Удовлетворительно'
+    print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}")
+
+all_grades = []
+total = 0
+
+for student in students:
+    all_grades.extend(student['grades'])
+
+total = sum(all_grades)
+print("Сумма всех оценок:", total)
+
+new_student = {'name': 'Jane', 'grades': [98, 97, 96]}
+students.append(new_student)
+
+remove_student = None
+min_average = float('inf')
+
+for student in students:
+    avg = calculate_average(student['grades'])
+    if avg < min_average:
+        min_average = avg
+        remove_student = student
+
+if remove_student:
+    students.remove(remove_student)
+
+
+def upgrade_students(students):
+    total = 0
+    for student in students:
+        avg = calculate_average(student['grades'])
+        total += sum(student['grades'])
+        print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}")
+    print("Сумма всех оценок:", total)

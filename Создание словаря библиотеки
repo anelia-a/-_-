@@ -19,12 +19,25 @@ def book_list_view(library):
             
 
 def add_book(title, author, year):
-    library[title] = {
-        'author': author,
-        'year': year,
-        'available': None
-    }
-    return library
+    if title in library:
+        response = input(str(f'Книга "{title}" уже есть в библиотеке. Хотите обновить информацию о ней? Да/нет: '))
+        if response.lower() == "да":
+            library[title] = {
+                'author': author,
+                'year': year,
+                'available': None
+            }
+            print(f'Книга "{title}" была успешно обновлена!')
+        else:
+            print(f'Изменений не произошло.')
+    else:
+        library[title] = {
+                'author': author,
+                'year': year,
+                'available': None
+            }
+        print(f'Книга "{title}" была успешно добавлена в библиотеку!')
+        
 
 add_book('Божественная комедия', 'Данте Алигьери', '1321')
-print(library)
+

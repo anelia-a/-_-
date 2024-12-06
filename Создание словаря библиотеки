@@ -52,6 +52,7 @@ for book in library.values():
     else:
         book['taken'] = True
 
+remove_book('Ася')
 
 def issue_book(title):
     if title in library:
@@ -78,5 +79,12 @@ def return_book(title):
     else:
         print('Книга не найдена в библиотеке.')
 
-issue_book('Евгений Онегин')
-return_book('Ася')
+
+def find_book(title):
+    if title in library:
+        info = library[title]
+        print(f'Название книги: {title}\nАвтор: {info["author"]}\nГод выпуска: {info["year"]}')
+    else:
+        print('Книга не найдена в библиотеке.')
+
+find_book('Война и мир')

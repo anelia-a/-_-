@@ -46,3 +46,37 @@ def remove_book(title):
         del library[title]
         print(f'Книга "{title}" была удалена')
 
+for book in library.values():
+    if book['available']:
+        book['taken'] = False
+    else:
+        book['taken'] = True
+
+
+def issue_book(title):
+    if title in library:
+        book = library[title]
+        if book['available']:
+            book['taken'] = True
+            book['available'] = False
+            print(f'Книга "{title}" успешно выдана!')
+        else:
+            print('Книга отсуттсвует.')
+    else:
+        print('Книга не найдена в библиотеке.')
+
+
+def return_book(title):
+    if title in library:
+        book = library[title]
+        if not book['available']:
+            book['taken'] = False
+            book['available'] = True
+            print(f'Книга "{title}" возвращена!')
+        else:
+            print('Книга уже была возвращена.')
+    else:
+        print('Книга не найдена в библиотеке.')
+
+issue_book('Евгений Онегин')
+return_book('Ася')

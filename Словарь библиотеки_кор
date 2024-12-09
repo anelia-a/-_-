@@ -26,7 +26,7 @@ def create_book(author, year):
     }
     
     
-def add_book(title, author, year):
+def add_book(author, year):
     if library[title]:
         response = input(str(f'Книга "{title}" уже есть в библиотеке. Хотите обновить информацию о ней? Да/нет: '))
         if response.lower() == "да":

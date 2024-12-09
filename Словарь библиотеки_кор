@@ -46,12 +46,6 @@ def remove_book(title):
         print(f'Книга "{title}" была удалена')
 
 
-for book in library.values():
-    if book['available']:
-        book['taken'] = False
-    else:
-        book['taken'] = True
-
 def issue_book(title):
     if title in library:
         book = library[title]

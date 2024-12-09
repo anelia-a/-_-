@@ -30,12 +30,12 @@ def add_book(author, year):
     if library[title]:
         response = input(str(f'Книга "{title}" уже есть в библиотеке. Хотите обновить информацию о ней? Да/нет: '))
         if response.lower() == "да":
-            library[title] = create_book(title, author, year)
+            library[title] = create_book(author, year)
             print(f'Книга "{title}" была успешно обновлена!')
         else:
             print(f'Изменений не произошло.')
     else:
-        library[title] = create_book(title, author, year)
+        library[title] = create_book(author, year)
         print(f'Книга "{title}" была успешно добавлена в библиотеку!')
 
 

@@ -40,10 +40,11 @@ def add_book(author, year):
 
 
 def remove_book(title):
-    if not library[title]:
+    try:
+        del library[title]
+    except KeyError:
         print('Книга не найдена')
     else:
-        del library[title]
         print(f'Книга "{title}" была удалена')
 
 

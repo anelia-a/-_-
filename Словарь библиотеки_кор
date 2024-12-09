@@ -18,7 +18,7 @@ def book_list_view(library):
             print(f'- {book}')
 
 
-def create_book(title, author, year):
+def create_book(author, year):
     return {
         'author': author,
         'year': year,

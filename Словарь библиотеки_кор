@@ -5,11 +5,13 @@ def book_list_view(library):
         available_books = [title for title, info in library.items() if info['available']]
         unavailable_books = [title for title, info in library.items() if not info['available']]
         print('Список книг в наличии:')
-        for book in available_books:
-            print(f'- {book}')
+        for title in available_books:
+            author = library[title]['author']
+            print(f'- {title}, {author}')
         print('Список отсутствующих книг:')
-        for book in unavailable_books:
-            print(f'- {book}')
+        for title in unavailable_books:
+            author = library[title]['author']
+            print(f'- {title}, {author}')
 
 
 def create_book(author, year):

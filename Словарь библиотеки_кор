@@ -71,11 +71,12 @@ def return_book(title):
 def find_book(title):
     if title in library:
         info = library[title]
-        print(f'Название книги: {title}\nАвтор: {info["author"]}\nГод выпуска: {info["year"]}')
+        status = ''
         if info['available']:
-            print('Наличие: Книга доступна.')
+            status = 'Доступна'
         else:
-            print('Наличие: Книга выдана.')
+            status = 'Недоступна'
+        print(f'Название книги: {title}\nАвтор:{info["author"]}\nГод выпуска: {info["year"]}\nСтатус: {status}')
     else:
         print('Книга не найдена в библиотеке.')
 

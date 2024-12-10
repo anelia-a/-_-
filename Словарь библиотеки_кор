@@ -1,9 +1,3 @@
-library = {
-    'Евгений Онегин': {'author': 'А.С.Пушкин', 'year': '1833', 'available': True},
-    'Война и мир': {'author': 'Л.Н.Толстой', 'year': '1867', 'available': True},
-    'Ася': {'author': 'И.С.Тургенев', 'year': '1858', 'available': False}
-}
-
 def book_list_view(library):
     if not library:
         print('В библиотеке нет книг')
@@ -26,8 +20,8 @@ def create_book(author, year):
     }
     
     
-def add_book(author, year):
-    if library[title]:
+def add_book(title, author, year):
+    if title in library:
         response = input(str(f'Книга "{title}" уже есть в библиотеке. Хотите обновить информацию о ней? Да/нет: '))
         if response.lower() == "да":
             library[title] = create_book(author, year)
@@ -84,6 +78,11 @@ def find_book(title):
         print('Книга не найдена в библиотеке.')
 
 
+library = {
+    'Евгений Онегин': {'author': 'А.С.Пушкин', 'year': '1833', 'available': True},
+    'Война и мир': {'author': 'Л.Н.Толстой', 'year': '1867', 'available': True},
+    'Ася': {'author': 'И.С.Тургенев', 'year': '1858', 'available': False}
+}
 while True:
     print('''Выберите пункт в меню:
 1.Просмотр библиотеки
@@ -103,18 +102,24 @@ while True:
         book_list_view(library)
     elif menu == '2':
         title = input(str('\nВведите название книги: '))
+        author = input(str('\nВведите автора книги: '))
+        year = input(str('\nВведите год выпуска книги: '))
         add_book(title, author, year)
     elif menu == '3':
         title = input(str('\nВведите название книги: '))
+        author = input(str('\nВведите автора книги: '))
         remove_book(title)
     elif menu == '4':
         title = input(str('\nВведите название книги: '))
+        author = input(str('\nВведите автора книги: '))
         issue_book(title)
     elif menu == '5':
         title = input(str('\nВведите название книги: '))
+        author = input(str('\nВведите автора книги: '))
         return_book(title)
     elif menu == '6':
         title = input(str('\nВведите название книги: '))
+        author = input(str('\nВведите автора книги: '))
         find_book(title)
     else:
         print('\nМеню закрыто.')

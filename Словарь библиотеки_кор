@@ -43,7 +43,7 @@ def remove_book(title):
 
 
 def issue_book(title):
-    if library[title]:
+    if title in library:
         book = library[title]
         if book['available']:
             book['available'] = False
@@ -55,7 +55,7 @@ def issue_book(title):
 
 
 def return_book(title):
-    if library[title]:
+    if title in library:
         book = library[title]
         if not book['available']:
             book['available'] = True
@@ -67,7 +67,7 @@ def return_book(title):
 
 
 def find_book(title):
-    if library[title]:
+    if title in library:
         info = library[title]
         print(f'Название книги: {title}\nАвтор: {info["author"]}\nГод выпуска: {info["year"]}')
         if info['available']:

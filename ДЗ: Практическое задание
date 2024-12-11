@@ -22,6 +22,7 @@ def count_students():
     total = sum(averages) / len(averages)
     print(f"Средняя оценка по студентам: {total:.2f}")
 
+
 new_student = {'name': 'Jane', 'grades': [98, 97, 96]}
 students.append(new_student)
 

@@ -6,26 +6,22 @@ students = [
     {'name': 'Oliver', 'grades': [100, 77, 87]}
 ]
 
-for student in students:
-    def calculate_average(grades):
-        avrg_grade = sum(grades) / len(grades)
-        return avrg_grade
-    avg = calculate_average(student['grades'])
-    status = ''
-    if avg >= 75:
-        status = 'Успешно'
-    else:
-        status = 'Удовлетворительно'
-    print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}")
-
-all_grades = []
-total = 0
+def calculate_average(grades):
+    avrg_grade = sum(grades) / len(grades)
+    return avrg_grade
+        
+    
+averages = []
 
 for student in students:
-    all_grades.extend(student['grades'])
-
-total = sum(all_grades)
-print("Сумма всех оценок:", total)
+    grades = student['grades']
+    avg = calculate_average(grades)
+    averages.append(avg)
+    status = 'Успешно' if avg >= 75 else 'Удовлетворительно'
+    print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}\n")
+    
+total = sum(averages) / len(averages)
+print(f"Средняя оценка по студентам: {total:.2f}")
 
 new_student = {'name': 'Jane', 'grades': [98, 97, 96]}
 students.append(new_student)

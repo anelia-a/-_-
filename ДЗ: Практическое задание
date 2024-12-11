@@ -7,7 +7,11 @@ students = [
 ]
 
 def calculate_average(grades):
-    avrg_grade = sum(grades) / len(grades)
+    try:
+        avrg_grade = sum(grades) / len(grades)
+    except ZeroDivisionError:
+        print('У студента еще нет оценок')
+        return 0
     return avrg_grade
 
 
@@ -23,19 +27,32 @@ def count_students():
     print(f"Средняя оценка по студентам: {total:.2f}")
 
 
-new_student = {'name': 'Jane', 'grades': [98, 97, 96]}
-students.append(new_student)
+def add_students():
+    name = input('Введите имя студента: ')
+    while True:
+        grades = input('Введите оценки студента (через пробел): ')
+        try: 
+            grades = [int(grade) for grade in grades.split(' ')] if grades else []
+            break
+        except ValueError:
+            print('Вводите только числовые значения!')
+    new_student = {'name': name, 'grades': grades}
+    students.append(new_student)
 
-remove_student = None
-min_average = float('inf')
-for student in students:
-    grades = student['grades']
-    avg = calculate_average(grades)
-    if avg < min_average:
-        min_average = avg
-        remove_student = student
-if remove_student:
-    students.remove(remove_student)
 
-    
+def remove_students():
+    remove_student = None
+    min_average = float('inf')
+    for student in students:
+        grades = student['grades']
+        avg = calculate_average(grades)
+        if avg < min_average:
+            min_average = avg
+            remove_student = student
+    if remove_student:
+        students.remove(remove_student)
+
+
+add_students()
+remove_students()
 count_students()

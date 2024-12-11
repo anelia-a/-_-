@@ -31,8 +31,11 @@ def count_students():
         averages.append(avg)
         status = students_status(avg)
         info_students(student, avg, status)
-    total = sum(averages) / len(averages)
-    print(f"Средняя оценка по студентам: {total:.2f}")
+    try:
+        total = sum(averages) / len(averages)
+        print(f"Средняя оценка по студентам: {total:.2f}")
+    except ZeroDivisionError:
+        print('Нет оценок для подсчета')
 
 
 def add_students():

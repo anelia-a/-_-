@@ -19,18 +19,19 @@ def students_status(avg):
     return 'Успешно' if avg >= 75 else 'Удовлетворительно'
 
 
-def info_students(student, avg, status):
+def info_students(student):
+    grades = student['grades']
+    avg = calculate_average(grades)
+    status = students_status(avg)
     print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}\n")
-    
+    return avg
+
 
 def count_students():
     averages = []
     for student in students:
-        grades = student['grades']
-        avg = calculate_average(grades)
+        avg = info_students(student)
         averages.append(avg)
-        status = students_status(avg)
-        info_students(student, avg, status)
     try:
         total = sum(averages) / len(averages)
         print(f"Средняя оценка по студентам: {total:.2f}")

@@ -20,8 +20,7 @@ def students_status(avg):
 
 
 def info_students(student):
-    grades = student['grades']
-    avg = calculate_average(grades)
+    avg = calculate_average(student['grades'])
     status = students_status(avg)
     print(f"Студент: {student['name']}\nСредняя оценка: {avg:.2f}\nСтатус: {status}\n")
     return avg

@@ -6,6 +6,7 @@ students = [
     {'name': 'Oliver', 'grades': [100, 77, 87]}
 ]
 
+
 def calculate_average(grades):
     try:
         avrg_grade = sum(grades) / len(grades)
@@ -13,7 +14,6 @@ def calculate_average(grades):
         print('У студента еще нет оценок')
         return 0
     return avrg_grade
-
 
 def students_status(avg):
     return 'Успешно' if avg >= 75 else 'Удовлетворительно'
@@ -27,22 +27,18 @@ def info_students(student):
 
 
 def count_students():
-    averages = []
+    averages = [calculate_average(student['grades']) for student in students]
+    total = sum(averages) / len(averages) if averages else 0
     for student in students:
-        avg = info_students(student)
-        averages.append(avg)
-    try:
-        total = sum(averages) / len(averages)
-        print(f"Средняя оценка по студентам: {total:.2f}")
-    except ZeroDivisionError:
-        print('Нет оценок для подсчета')
+        info_students(student)
+    print(f"Средняя оценка по студентам: {total:.2f}")
 
 
 def add_students():
     name = input('Введите имя студента: ')
     while True:
         grades = input('Введите оценки студента (через пробел): ')
-        try: 
+        try:
             grades = [int(grade) for grade in grades.split(' ')] if grades else []
             break
         except ValueError:
@@ -55,8 +51,7 @@ def remove_students():
     remove_student = None
     min_average = float('inf')
     for student in students:
-        grades = student['grades']
-        avg = calculate_average(grades)
+        avg = calculate_average(student['grades'])
         if avg < min_average:
             min_average = avg
             remove_student = student
@@ -64,6 +59,9 @@ def remove_students():
         students.remove(remove_student)
 
 
-add_students()
-remove_students()
-count_students()
+if __name__ == "__main__":
+    count_students()
+    add_students()
+    count_students()
+    remove_students()
+

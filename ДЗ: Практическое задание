@@ -45,6 +45,7 @@ def add_students():
             print('Вводите только числовые значения!')
     new_student = {'name': name, 'grades': grades}
     students.append(new_student)
+    print(f"Студент(ка) {name} добавлен(а) в спискок\n")
 
 
 def remove_students():
@@ -57,6 +58,8 @@ def remove_students():
             remove_student = student
     if remove_student:
         students.remove(remove_student)
+    print(f"Студент(ка) {remove_student['name']} исключен(а) из списка")
+
 
 
 if __name__ == "__main__":

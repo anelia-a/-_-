@@ -1,0 +1,33 @@
+class ToDoList:
+    def __init__(self):
+        self.tasks = []
+    
+    def add_task(self, task):
+        self.tasks.append({'task': task, 'completed': False})
+    
+    def complete_task(self, task):
+        for t in self.tasks:
+            if t['task'] == task:
+                t['completed'] = True
+                return
+        print(f"Задача '{task}' не найдена")
+    
+    def remove_task(self, task):
+        for t in self.tasks:
+            if t['task'] == task:
+                self.tasks.remove(t)
+                return
+        print(f"Задача '{task}' не найдена")
+    
+    def list_tasks(self):
+        for t in self.tasks:
+            status = '+' if t['completed'] else '-'
+            print(f"{status} {t['task']}")
+
+todo = ToDoList()
+todo.add_task("Купить продукты")
+todo.add_task("Записаться на прием к врачу")
+todo.add_task("Купить подарок другу")
+todo.complete_task("Записаться на прием к врачу")
+todo.remove_task("Купить продукты")
+todo.list_tasks()

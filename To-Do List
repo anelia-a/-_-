@@ -2,6 +2,7 @@ class ToDoList:
     def __init__(self):
         self.tasks = {}
 
+
     def add_task(self, task):
         try:
             self.tasks[task] = '-'
@@ -17,6 +18,7 @@ class ToDoList:
         except KeyError:
             print(f"Задача '{task}' не найдена")
 
+
     def remove_task(self, task):
         try:
             self.tasks.pop(task)
@@ -24,40 +26,38 @@ class ToDoList:
         except KeyError:
             print(f'Задача {task} не найдена')
 
+
     def list_tasks(self):
         for key in self.tasks:
             print(f"{self.tasks[key]} {key}")
 
 
-todo = ToDoList()
-todo.add_task("Купить продукты")
-todo.add_task("Записаться на прием к врачу")
-todo.add_task("Купить подарок другу")
-todo.complete_task("Записаться на прием к врачу")
-todo.remove_task("Купить продукты")
-todo.list_tasks()
-
-
-
+todoobj = ToDoList()
 while True:
     print('''Выберите пункт в меню:
     1.Добавить задачу
     2.Изменить статус задачи
     3.Удалить задачу
-    4.Вывести список задач''')
+    4.Вывести список задач
+    5.Покинуть меню''')
     menu = input('Введите выбранный вами вариант: ')
-    while menu > '4':
+    while menu > '5':
         menu = input('Ошибка! Введите число соответсвующее представленным в меню вариантам: ')
     while menu < '1':
          menu = input('Ошибка! Введите число соответсвующее представленным в меню вариантам: ')
     if menu == '1':
-        add_task(self, task)
+        task = input('Введите задачу: ')
+        todoobj.add_task(task)
     elif menu == '2':
-        complete_task(self, task)
+        task = input('Введите задачу: ')
+        todoobj.complete_task(task)
     elif menu == '3':
-        remove_task(self, task)
+        task = input('Введите задачу, которую хотите удалить: ')
+        todoobj.remove_task(task)
     elif menu == '4':
-        list_tasks(self)
+        todoobj.list_tasks()
     else:
         print('\nМеню закрыто.')
         break
+
+

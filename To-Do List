@@ -18,8 +18,11 @@ class ToDoList:
             print(f"Задача '{task}' не найдена")
 
     def remove_task(self, task):
-        self.tasks.pop(task)
-        print(f"Задача '{task}' удалена")
+        try:
+            self.tasks.pop(task)
+            print(f"Задача '{task}' удалена")
+        except KeyError:
+            print(f'Задача {task} не найдена')
 
     def list_tasks(self):
         for key in self.tasks.keys():

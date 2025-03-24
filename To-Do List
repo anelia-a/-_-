@@ -25,7 +25,7 @@ class ToDoList:
             print(f'Задача {task} не найдена')
 
     def list_tasks(self):
-        for key in self.tasks.keys():
+        for key in self.tasks:
             print(f"{self.tasks[key]} {key}")
 
 

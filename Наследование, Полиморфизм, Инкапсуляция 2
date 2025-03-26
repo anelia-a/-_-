@@ -1,0 +1,13 @@
+class BankAccount:
+    
+    def __init__(self, value):
+        self.__balance = value
+        
+    def get_value(self):
+        return f"На вашем счету {self.__balance}"
+        
+    def set_value(self):
+        return f"Со счета снято {self.__balance}"
+        
+    def check_value(self):
+        return f"На счету {self.__balance}"

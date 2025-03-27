@@ -21,4 +21,29 @@ class BankAccount:
 
     def get_balance(self):
         return self.__balance
+
+
+bank_obj = BankAccount()
+while True:
+    print('''Выберите пункт в меню:
+    1.Внести денежные средства
+    2.Снять денежные средства
+    3.Узнать баланс
+    4.Покинуть меню''')
+    menu = input('Введите выбранный вами вариант: ')
+    while menu > '4':
+        menu = input('Ошибка! Введите число соответсвующее представленным в меню вариантам: ')
+    while menu < '1':
+         menu = input('Ошибка! Введите число соответсвующее представленным в меню вариантам: ')
+    if menu == '1':
+        amount = input('Введите сумму: ')
+        bank_obj.deposite(amount)
+    elif menu == '2':
+        amount = input('Введите сумму: ')
+        bank_obj.withdraw(amount)
+    elif menu == '3':
+        bank_obj.get_balance()
+    else:
+        print('\nМеню закрыто.')
+        break
         

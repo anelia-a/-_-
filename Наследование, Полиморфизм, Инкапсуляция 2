@@ -20,7 +20,7 @@ class BankAccount:
             print("Введите положительную сумму")
 
     def get_balance(self):
-        return self.__balance
+        print(f"На вашем счету {self.__balance}")
 
 
 bank_obj = BankAccount()

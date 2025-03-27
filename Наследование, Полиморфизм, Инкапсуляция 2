@@ -1,6 +1,6 @@
 class BankAccount:
     
-    def __init__(self, initial_balance):
+    def __init__(self, initial_balance=0):
         self.__balance = initial_balance
         
     def deposite(self, amount):
@@ -36,10 +36,10 @@ while True:
     while menu < '1':
          menu = input('Ошибка! Введите число соответсвующее представленным в меню вариантам: ')
     if menu == '1':
-        amount = input('Введите сумму: ')
+        amount = int(input('Введите сумму: '))
         bank_obj.deposite(amount)
     elif menu == '2':
-        amount = input('Введите сумму: ')
+        amount = int(input('Введите сумму: '))
         bank_obj.withdraw(amount)
     elif menu == '3':
         bank_obj.get_balance()

@@ -8,7 +8,7 @@ class BankAccount:
             self.__balance += amount
             print(f"Сумма {amount} успешно внесена. На вашем счету {self.__balance}")
         else:
-            print("Сумма депозита должна быть положительной.")
+            print("Введите положительную сумму")
 
     def withdraw(self, amount):
         if 0 < amount <= self.__balance:
